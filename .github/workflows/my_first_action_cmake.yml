@@ -1,7 +1,7 @@
 name: сonfigure_build_test_CMake
 
 on:
-  push: 
+  push:
     branches: [ "main" ]
 
 env:
