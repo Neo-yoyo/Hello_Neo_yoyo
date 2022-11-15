@@ -3,19 +3,17 @@ name: CMake_Build_Matrix
 on: [push]
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./setup_server.sh
   build:
-    name: ${{ matrix.config.name }}
-    runs-on: ${ { matrix.config.os } }
-    strategy: 
-      fail-fast: false
-      matrix:
-        config:
-        - name: "Ubuntu Latest GCC",
-          artifact: "Linux.tar.xz",
-          os: ubuntu-latest,
-          build_type: "Release", cc: "gcc", cxx: "g++"
-          
-          
-        
-        
-      
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./build_server.sh
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./test_server.sh
