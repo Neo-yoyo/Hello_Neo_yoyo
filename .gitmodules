@@ -1,0 +1,3 @@
+[submodule "git_submodul"]
+	path = git_submodul
+	url = git@github.com:Neo-yoyo/git_submodul.git
