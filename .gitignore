@@ -36,3 +36,5 @@ CMakeLists.txt.user.*
 *.app
 
 .idea
+
+cmake-build-debug/
